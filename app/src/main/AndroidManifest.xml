@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity"
+        <activity
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +23,8 @@
         <activity android:name=".ui.LogActivity" />
         <activity android:name=".ui.ViewActivity" />
         <activity android:name=".ui.AboutActivity" />
-        <activity android:name=".ui.FitnessActivity"></activity>
+        <activity android:name=".ui.FitnessListActivity" />
+        <activity android:name=".ui.FitnessDetailActivity"></activity>
     </application>
 
 </manifest>

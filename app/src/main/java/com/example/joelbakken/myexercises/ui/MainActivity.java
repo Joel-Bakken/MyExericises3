@@ -18,18 +18,12 @@ import static com.example.joelbakken.myexercises.R.id.locationEditText;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.logButton)
-    Button mLogButton;
-    @Bind(R.id.viewButton)
-    Button mViewButton;
-    @Bind(R.id.appNameTextView)
-    TextView mAppNameTextView;
-    @Bind(R.id.aboutButton)
-    Button mAboutButton;
-    @Bind(R.id.findFitnessButton)
-    Button mFindFitnessButton;
-    @Bind(locationEditText)
-    EditText mLocationEditText;
+    @Bind(R.id.logButton) Button mLogButton;
+    @Bind(R.id.viewButton) Button mViewButton;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+    @Bind(R.id.aboutButton) Button mAboutButton;
+    @Bind(R.id.findFitnessButton) Button mFindFitnessButton;
+    @Bind(locationEditText) EditText mLocationEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mFindFitnessButton) {
             String location = mLocationEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, FitnessActivity.class);
+            Intent intent = new Intent(MainActivity.this, FitnessListActivity.class);
             intent.putExtra("locationEditText", location);
             if (location.equals("")) {
                 Toast.makeText(MainActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();

@@ -1,6 +1,7 @@
 package com.example.joelbakken.myexercises.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.example.joelbakken.myexercises.R;
 import com.example.joelbakken.myexercises.models.Fitness;
+import com.example.joelbakken.myexercises.ui.FitnessDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class FitnessListAdapter extends RecyclerView.Adapter<FitnessListAdapter.FitnessViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Fitness> mFitness = new ArrayList<>();
     private Context mContext;
 
@@ -42,7 +49,7 @@ public class FitnessListAdapter extends RecyclerView.Adapter<FitnessListAdapter.
         return mFitness.size();
     }
 
-    public class FitnessViewHolder extends RecyclerView.ViewHolder {
+    public class FitnessViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.fitnessImageView) ImageView mFitnessImageView;
         @Bind(R.id.fitnessNameTextView) TextView mNameTextView;
         @Bind(R.id.categoryTextView) TextView mCategoryTextView;
@@ -54,13 +61,23 @@ public class FitnessListAdapter extends RecyclerView.Adapter<FitnessListAdapter.
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindFitness(Fitness fitness) {
-            Picasso.with(mContext).load(fitness.getImageUrl()).into(mFitnessImageView);
+            Picasso.with(mContext).load(fitness.getImageUrl()).resize(MAX_WIDTH, MAX_HEIGHT).centerCrop().into(mFitnessImageView);
             mNameTextView.setText(fitness.getName());
             mCategoryTextView.setText(fitness.getCategories().get(0));
             mRatingTextView.setText("Rating: " + fitness.getRating() + "/5");
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, FitnessDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("fitnesses", Parcels.wrap(mFitness));
+            mContext.startActivity(intent);
         }
     }
 }
