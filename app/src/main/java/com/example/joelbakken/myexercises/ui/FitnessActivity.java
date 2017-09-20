@@ -3,12 +3,15 @@ package com.example.joelbakken.myexercises.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.joelbakken.myexercises.R;
+import com.example.joelbakken.myexercises.adapters.FitnessListAdapter;
 import com.example.joelbakken.myexercises.models.Fitness;
 import com.example.joelbakken.myexercises.services.YelpService;
 
@@ -24,8 +27,8 @@ import okhttp3.Response;
 public class FitnessActivity extends AppCompatActivity {
     public static final String TAG = FitnessActivity.class.getSimpleName();
 
-    @Bind(R.id.locationTextView) TextView mLocationTextView;
-    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private FitnessListAdapter mAdapter;
 
     public ArrayList<Fitness> mFitness = new ArrayList<>();
 
@@ -37,8 +40,6 @@ public class FitnessActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-
-        mLocationTextView.setText("Here are all the fitness locations near: " + location);
 
         getFitness(location);
     }
@@ -61,22 +62,11 @@ public class FitnessActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        String[] fitnessNames = new String[mFitness.size()];
-                        for (int i = 0; i < fitnessNames.length; i++) {
-                            fitnessNames[i] = mFitness.get(i).getName();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(FitnessActivity.this, android.R.layout.simple_list_item_1, fitnessNames);
-                        mListView.setAdapter(adapter);
-
-                        for (Fitness fitness : mFitness) {
-                            Log.d(TAG, "Name: " + fitness.getName());
-                            Log.d(TAG, "Phone: " + fitness.getPhone());
-                            Log.d(TAG, "Website: " + fitness.getWebsite());
-                            Log.d(TAG, "Image url: " + fitness.getImageUrl());
-                            Log.d(TAG, "Rating: " + Double.toString(fitness.getRating()));
-                            Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", fitness.getAddress()));
-                            Log.d(TAG, "Categories: " + fitness.getCategories().toString());
-                        }
+                        mAdapter = new FitnessListAdapter(getApplicationContext(), mFitness);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(FitnessActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }

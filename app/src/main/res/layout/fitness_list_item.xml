@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="130dp"
         android:layout_height="100dp"
-        android:id="@+id/restaurantImageView"
+        android:id="@+id/fitnessImageView"
         android:src="@drawable/log1"
         android:scaleType="centerCrop"/>
 
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="One Cuisine Type"
+            android:text="Category"
             android:id="@+id/categoryTextView"
             android:layout_below="@+id/fitnessNameTextView"
             android:layout_alignParentLeft="true"
