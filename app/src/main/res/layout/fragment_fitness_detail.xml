@@ -11,11 +11,11 @@
         android:background="@color/colorPrimary">
 
         <ImageView
+            android:id="@+id/fitnessImageView"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/restaurantImageView"
-            android:src="@drawable/log1"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/log1" />
 
         <RelativeLayout
             android:layout_width="match_parent"
