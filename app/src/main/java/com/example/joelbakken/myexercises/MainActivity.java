@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import static com.example.joelbakken.myexercises.R.id.locationEditText;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.logButton) Button mLogButton;
     @Bind(R.id.viewButton) Button mViewButton;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
@@ -53,19 +53,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mFindFitnessButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String location = mLocationEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, FitnessActivity.class);
-                intent.putExtra("locationEditText", location);
-                if (location.equals("")) {
-                    Toast.makeText(MainActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();
-                } else {
-                    startActivity(intent);
-                }
-            }
-        });
+        mFindFitnessButton.setOnClickListener(this);
 
     }
-}
+
+
+    @Override
+    public void onClick(View view) {
+            String location = mLocationEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, FitnessActivity.class);
+            intent.putExtra("locationEditText", location);
+            if (location.equals("")) {
+                Toast.makeText(MainActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();
+            } else {
+                startActivity(intent);
+            }
+        }
+    }
