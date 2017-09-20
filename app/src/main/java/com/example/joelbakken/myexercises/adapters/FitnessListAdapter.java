@@ -3,6 +3,7 @@ package com.example.joelbakken.myexercises.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static android.content.ContentValues.TAG;
+
 public class FitnessListAdapter extends RecyclerView.Adapter<FitnessListAdapter.FitnessViewHolder> {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
@@ -34,6 +37,7 @@ public class FitnessListAdapter extends RecyclerView.Adapter<FitnessListAdapter.
     }
     @Override
     public FitnessListAdapter.FitnessViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.v(TAG, "I'm in the fitness list adapter");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fitness_list_item, parent, false);
         FitnessViewHolder viewHolder = new FitnessViewHolder(view);
         return viewHolder;
@@ -41,6 +45,7 @@ public class FitnessListAdapter extends RecyclerView.Adapter<FitnessListAdapter.
 
     @Override
     public void onBindViewHolder(FitnessListAdapter.FitnessViewHolder holder, int position) {
+        Log.v(TAG, "BindViewHolder Activated");
         holder.bindFitness(mFitness.get(position));
     }
 

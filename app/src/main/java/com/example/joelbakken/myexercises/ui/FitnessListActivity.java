@@ -35,7 +35,7 @@ public class FitnessListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
+        String location = intent.getStringExtra("locationEditText");
 
         getFitness(location);
     }
