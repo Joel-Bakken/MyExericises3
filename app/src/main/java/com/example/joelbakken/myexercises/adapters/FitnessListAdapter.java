@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.joelbakken.myexercises.R;
 import com.example.joelbakken.myexercises.models.Fitness;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -56,6 +57,7 @@ public class FitnessListAdapter extends RecyclerView.Adapter<FitnessListAdapter.
         }
 
         public void bindFitness(Fitness fitness) {
+            Picasso.with(mContext).load(fitness.getImageUrl()).into(mFitnessImageView);
             mNameTextView.setText(fitness.getName());
             mCategoryTextView.setText(fitness.getCategories().get(0));
             mRatingTextView.setText("Rating: " + fitness.getRating() + "/5");
