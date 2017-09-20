@@ -5,11 +5,10 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/fitnessImageView"
         android:layout_width="130dp"
         android:layout_height="100dp"
-        android:id="@+id/fitnessImageView"
-        android:src="@drawable/log1"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -42,13 +41,13 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/ratingTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rating"
-                android:id="@+id/ratingTextView"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"/>
+                android:text="Rating"
+                android:textColor="@color/colorAccent" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
