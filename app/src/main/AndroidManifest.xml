@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.joelbakken.myexercises">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +21,7 @@
         <activity android:name=".LogActivity" />
         <activity android:name=".ViewActivity" />
         <activity android:name=".AboutActivity" />
+        <activity android:name=".FitnessActivity"></activity>
     </application>
 
 </manifest>
