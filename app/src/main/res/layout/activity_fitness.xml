@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.joelbakken.myexercises.FitnessActivity">
+    tools:context="com.example.joelbakken.myexercises.ui.FitnessActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,5 +29,10 @@
         app:srcCompat="@drawable/log1"
         android:layout_above="@+id/locationTextView"
         android:layout_alignParentStart="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"/>
 
 </RelativeLayout>

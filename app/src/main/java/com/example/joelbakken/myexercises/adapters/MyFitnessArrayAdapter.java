@@ -1,4 +1,4 @@
-package com.example.joelbakken.myexercises;
+package com.example.joelbakken.myexercises.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

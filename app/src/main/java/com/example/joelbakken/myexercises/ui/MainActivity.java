@@ -1,4 +1,4 @@
-package com.example.joelbakken.myexercises;
+package com.example.joelbakken.myexercises.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.joelbakken.myexercises.R;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -16,12 +18,18 @@ import static com.example.joelbakken.myexercises.R.id.locationEditText;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.logButton) Button mLogButton;
-    @Bind(R.id.viewButton) Button mViewButton;
-    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
-    @Bind(R.id.aboutButton) Button mAboutButton;
-    @Bind(R.id.findFitnessButton) Button mFindFitnessButton;
-    @Bind(locationEditText) EditText mLocationEditText;
+    @Bind(R.id.logButton)
+    Button mLogButton;
+    @Bind(R.id.viewButton)
+    Button mViewButton;
+    @Bind(R.id.appNameTextView)
+    TextView mAppNameTextView;
+    @Bind(R.id.aboutButton)
+    Button mAboutButton;
+    @Bind(R.id.findFitnessButton)
+    Button mFindFitnessButton;
+    @Bind(locationEditText)
+    EditText mLocationEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-       mLogButton.setOnClickListener(new View.OnClickListener() {
+        mLogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LogActivity.class);
@@ -47,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mAboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
             }
@@ -59,7 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
+        if (v == mFindFitnessButton) {
             String location = mLocationEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, FitnessActivity.class);
             intent.putExtra("locationEditText", location);
@@ -70,3 +79,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+}
