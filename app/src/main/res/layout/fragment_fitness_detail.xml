@@ -116,15 +116,6 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/saveFitnessButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="@color/colorAccent"
-                android:text="Save Fitness Location"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>
 
