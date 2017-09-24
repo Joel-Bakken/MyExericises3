@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
     @Bind(R.id.aboutButton) Button mAboutButton;
     @Bind(R.id.findFitnessButton) Button mFindFitnessButton;
-    @Bind(locationEditText) EditText mLocationEditText;
+    @Bind(R.id.locationEditText) EditText mLocationEditText;
+    @Bind(R.id.savedFitnessButton) Button mSavedFitnessButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +114,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("location", location);
             startActivity(intent);
             }
+
+        if (v == mSavedFitnessButton) {
+            Intent intent = new Intent(MainActivity.this, SavedFitnessListActivity.class);
+            startActivity(intent);
         }
+    }
 
     private void saveLocationToFirebase(String location) {
         mSearchedLocationReference.push().setValue(location);
