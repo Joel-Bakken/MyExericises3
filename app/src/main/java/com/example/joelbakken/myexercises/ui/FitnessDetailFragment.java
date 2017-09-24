@@ -10,9 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.joelbakken.myexercises.Constants;
 import com.example.joelbakken.myexercises.R;
 import com.example.joelbakken.myexercises.models.Fitness;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -86,6 +90,13 @@ public class FitnessDetailFragment extends Fragment implements View.OnClickListe
                             + "," + mFitness.getLongitude()
                             + "?q=(" + mFitness.getName() + ")"));
             startActivity(mapIntent);
+        }
+        if (v == mSaveFitnessButton) {
+            DatabaseReference fitnessRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_FITNESS);
+            fitnessRef.push().setValue(mFitness);
+            Toast.makeText(getContext(), "Location Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }
