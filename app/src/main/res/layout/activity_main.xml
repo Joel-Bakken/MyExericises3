@@ -10,10 +10,11 @@
         android:id="@+id/mainPic"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
         android:contentDescription="woman doing yoga on a wodden beam"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/mainpic" />
+        app:srcCompat="@drawable/mainpic"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/appNameTextView"
@@ -37,7 +38,8 @@
         android:text="Log Exercise"
         android:textAllCaps="true"
         android:textStyle="bold"
-        android:layout_above="@+id/viewButton"
+        android:layout_marginBottom="97dp"
+        android:layout_above="@+id/locationEditText"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -48,8 +50,9 @@
         android:text="View My Exercises"
         android:textAllCaps="true"
         android:textStyle="bold"
-        android:layout_above="@+id/aboutButton"
-        android:layout_alignParentStart="true" />
+        android:layout_alignBaseline="@+id/logButton"
+        android:layout_alignBottom="@+id/logButton"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/aboutButton"
@@ -58,9 +61,9 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="About"
         android:textStyle="bold"
-        android:layout_marginBottom="113dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/viewButton" />
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/viewButton"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/findFitnessButton"
@@ -81,6 +84,18 @@
         android:ems="10"
         android:hint="Zip Code"
         android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/savedFitnessButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/aboutButton"
+        android:layout_toStartOf="@+id/viewButton"
+        android:background="@android:color/holo_blue_light"
+        android:text="My Saved Fitness Locations"
+        android:textColor="@color/colorPrimaryText"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
 
 </RelativeLayout>

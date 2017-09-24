@@ -24,7 +24,8 @@
         <activity android:name=".ui.ViewActivity" />
         <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.FitnessListActivity" />
-        <activity android:name=".ui.FitnessDetailActivity"></activity>
+        <activity android:name=".ui.FitnessDetailActivity" />
+        <activity android:name=".ui.SavedFitnessListActivity"></activity>
     </application>
 
 </manifest>
