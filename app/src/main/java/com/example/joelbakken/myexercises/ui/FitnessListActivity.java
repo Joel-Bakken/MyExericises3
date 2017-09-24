@@ -1,11 +1,14 @@
 package com.example.joelbakken.myexercises.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.joelbakken.myexercises.Constants;
 import com.example.joelbakken.myexercises.R;
 import com.example.joelbakken.myexercises.adapters.FitnessListAdapter;
 import com.example.joelbakken.myexercises.models.Fitness;
@@ -21,9 +24,12 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FitnessListActivity extends AppCompatActivity {
-    public static final String TAG = FitnessListActivity.class.getSimpleName();
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentAddress;
+//    public static final String TAG = FitnessListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+
     private FitnessListAdapter mAdapter;
 
     public ArrayList<Fitness> mFitness = new ArrayList<>();
@@ -38,6 +44,13 @@ public class FitnessListActivity extends AppCompatActivity {
         String location = intent.getStringExtra("locationEditText");
 
         getFitness(location);
+
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//
+//        if (mRecentAddress !=null) {
+//            getFitness(mRecentAddress);
+//        }
     }
 
     private void getFitness(String location) {
