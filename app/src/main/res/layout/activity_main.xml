@@ -31,67 +31,46 @@
 
     <Button
         android:id="@+id/logButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
         android:backgroundTint="@color/colorPrimary"
         android:contentDescription="click to log your latest exercises"
         android:text="Log Exercise"
         android:textAllCaps="true"
         android:textStyle="bold"
-        android:layout_marginBottom="97dp"
-        android:layout_above="@+id/locationEditText"
+        android:layout_above="@+id/aboutButton"
         android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/viewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:backgroundTint="@color/colorPrimaryLight"
         android:text="View My Exercises"
         android:textAllCaps="true"
-        android:textStyle="bold"
-        android:layout_alignBaseline="@+id/logButton"
-        android:layout_alignBottom="@+id/logButton"
-        android:layout_alignParentEnd="true" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/aboutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:text="About"
-        android:textStyle="bold"
-        android:layout_marginTop="39dp"
-        android:layout_below="@+id/viewButton"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/findFitnessButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@android:color/holo_blue_bright"
-        android:text="Find Fitness Locations"
+        android:layout_alignParentStart="true"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="About"
         android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/locationEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/findFitnessButton"
-        android:layout_alignEnd="@+id/findFitnessButton"
-        android:ems="10"
-        android:hint="Zip Code"
-        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/savedFitnessButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/aboutButton"
-        android:layout_toStartOf="@+id/viewButton"
-        android:background="@android:color/holo_blue_light"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/logButton"
+        android:layout_marginTop="55dp"
+        android:backgroundTint="@android:color/holo_blue_bright"
         android:text="My Saved Fitness Locations"
         android:textColor="@color/colorPrimaryText"
         android:textStyle="bold"

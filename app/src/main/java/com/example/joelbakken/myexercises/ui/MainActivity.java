@@ -5,12 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.joelbakken.myexercises.Constants;
 import com.example.joelbakken.myexercises.R;
@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static com.example.joelbakken.myexercises.R.id.locationEditText;
+
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
     @Bind(R.id.aboutButton) Button mAboutButton;
     @Bind(R.id.findFitnessButton) Button mFindFitnessButton;
-    @Bind(R.id.locationEditText) EditText mLocationEditText;
+
     @Bind(R.id.savedFitnessButton) Button mSavedFitnessButton;
 
     @Override
@@ -103,15 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mFindFitnessButton) {
-            String location = mLocationEditText.getText().toString();
-
-            saveLocationToFirebase(location);
-//
-//            if(!(location).equals("")) {
-//                addToSharedPreferences(location);
-//            }
             Intent intent = new Intent(MainActivity.this, FitnessListActivity.class);
-            intent.putExtra("location", location);
             startActivity(intent);
             }
 
@@ -120,18 +112,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
     }
-
-    private void saveLocationToFirebase(String location) {
-        mSearchedLocationReference.push().setValue(location);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
-    }
-
-//    private void addToSharedPreferences(String location) {
-//        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-//    }
 }
