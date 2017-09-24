@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.viewButton) Button mViewButton;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
     @Bind(R.id.aboutButton) Button mAboutButton;
-    @Bind(R.id.findFitnessButton) Button mFindFitnessButton;
+
 
     @Bind(R.id.savedFitnessButton) Button mSavedFitnessButton;
 
@@ -68,8 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+
 
         mLogButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,17 +94,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mFindFitnessButton.setOnClickListener(this);
+
 
     }
 
 
     @Override
     public void onClick(View v) {
-        if (v == mFindFitnessButton) {
-            Intent intent = new Intent(MainActivity.this, FitnessListActivity.class);
-            startActivity(intent);
-            }
 
         if (v == mSavedFitnessButton) {
             Intent intent = new Intent(MainActivity.this, SavedFitnessListActivity.class);
