@@ -15,7 +15,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ViewActivity extends AppCompatActivity {
-    @Bind(R.id.exerciseLog) TextView mExerciseLog;
     @Bind(R.id.listView) ListView mListView;
     @Bind(R.id.logButton) Button mLogButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
@@ -39,8 +38,7 @@ public class ViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view);
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        String exerciseName = intent.getStringExtra("exerciseName");
-        mExerciseLog.setText("You did the following exercise: " + exerciseName);
+
 
         mLogButton.setOnClickListener(new View.OnClickListener() {
             @Override
